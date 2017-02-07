@@ -8,6 +8,7 @@
 <input style="display:none;" type="text" id="answer">
 <input type="button" id="button" value="Start" onClick="startFunction();">
 <div id="counter"></div>
+
 <br>
 <br>
 <br>
@@ -18,7 +19,7 @@
     	width = 800 - margin.left - margin.right,
     	height = 300 - margin.top - margin.bottom;
 
-    var trials = 60;
+    var trials = 5;
 
 	var randData = new Array(10);
 	var randPoints = new Array(2);
@@ -61,7 +62,7 @@
    		reportedVal = parseInt(document.getElementById("answer").value);
 
    		error = Math.round(Math.log2(Math.abs(reportedVal - trueVal) + 1/8));
-		if (error <0){
+   		if (error <0){
 			error = 0;
 		}
 
