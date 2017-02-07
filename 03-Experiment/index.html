@@ -38,6 +38,7 @@
    		document.getElementById('answer').style.display = "block";
    		document.getElementById('button').value = "Submit";
    		document.getElementById('button').onclick = click;
+   		document.getElementById('counter').innerHTML = (count+1) + "/60";
 
    		test();
    	}
@@ -45,6 +46,7 @@
    	function click(){
    		saveAns();
    		count++;
+   		document.getElementById('counter').innerHTML = (count+1) + "/60";
    		test();	
    	}
 
@@ -58,6 +60,9 @@
    		reportedVal = parseInt(document.getElementById("answer").value);
 
    		error = Math.round(Math.log2(Math.abs(reportedVal - trueVal) + 1/8));
+		if (error <0){
+			error = 0;
+		}
 
    		finalResults[count][1] = trueVal;
    		finalResults[count][2] = reportedVal;
