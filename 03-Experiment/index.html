@@ -19,7 +19,7 @@
     	width = 800 - margin.left - margin.right,
     	height = 300 - margin.top - margin.bottom;
 
-    var trials = 60;
+    var trials = 5;
 
 	var randData = new Array(10);
 	var randPoints = new Array(2);
@@ -40,6 +40,13 @@
    		document.getElementById('answer').style.display = "block";
    		document.getElementById('button').value = "Submit";
    		document.getElementById('button').onclick = click;
+   		document.getElementById("answer")
+   		    .addEventListener("keyup", function(event) {
+   		    event.preventDefault();
+   		    if (event.keyCode == 13) {
+   		        document.getElementById("button").click();
+   		    }
+   		});
    		document.getElementById('counter').innerHTML = (count+1) + "/60";
 
    		test();
@@ -108,7 +115,7 @@
    				document.write("Actual Percent: ", finalResults[i][1], " , Your Percent: ", finalResults[i][2], " , Error: ", finalResults[i][3], "<br>");
    			}
 
-   			writeCSV();
+   			//writeCSV();
    			
    		}
    		
@@ -266,8 +273,7 @@
 		hiddenElement.target = '_blank';
 		hiddenElement.download = 'experiment.csv';
 		hiddenElement.click();
-	}	
-
+	}
 
 </script>
 
